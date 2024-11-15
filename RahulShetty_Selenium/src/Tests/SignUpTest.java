@@ -1,47 +1,36 @@
 package Tests;
 
-import java.util.Iterator;
-import java.util.Set;
+import java.time.Duration;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-import DriverSetup.DriverSetup;
-
-public class SignUpTest extends Pages.SignUp {
-
-	WebDriver driver;
-
-	public SignUpTest(WebDriver driver) {
-		super(driver);
-		// TODO Auto-generated constructor stub
-	}
+public class SignUpTest extends Setup {
 
 	@Test
-	public void SignUp() {
+	public void SignUp() throws InterruptedException {
+		signup.clicksignup();
 
-		Set<String> windows = driver.getWindowHandles();
-		Iterator<String> it = windows.iterator();
-		String ParentID = it.next();
-		String childID = it.next();
+		signup.EnterTitle("MR");
+		signup.EnterFnameAndLname("Fname", "Lname");
+		signup.SelectCountry("India");
+		signup.SelectDOB("Friday","December","2000", "1");
 
-		driver.switchTo().window(childID);
+		signup.scroll();
 
-		Pages.SignUp su = new Pages.SignUp(driver);
-
-		su.EnterTitle("");
-		su.EnterFnameAndLname("", "");
-		su.SelectCountry("");
-		su.SelectDOB("", "", "", "");
-
-		su.scroll();
-
-		su.EnterContact("", "");
-
-		su.EnterEmail("");
-		su.EnterPasswordAndClickSubmit("");
-		su.OTPconfirmation.isDisplayed();
+		signup.EnterContact("8000010000", "+91");
+		
+		//signup.waituntil(signup.EnterEmail, 10);
+		Thread.sleep(5000);
+		signup.EnterEmail.click();
+		signup.enteremail("jshdbvkad000@gmail.com");
+		
+		signup.EnterPasswordAndClickSubmit("AA@jdh123");
+		signup.OTPconfirmation.isDisplayed();
 	}
+
+	
 
 }

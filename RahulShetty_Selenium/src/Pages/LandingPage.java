@@ -5,10 +5,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LandingPage {
+import BaseClass.BaseClass;
+
+public class LandingPage extends BaseClass {
 	WebDriver driver;
 
 	public LandingPage(WebDriver driver) {
+	
 		this.driver = driver;
 	}
 
