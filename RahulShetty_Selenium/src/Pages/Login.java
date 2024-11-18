@@ -7,8 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import BaseClass.BaseClass;
 
-public class Login extends BaseClass {
-	WebDriver driver;
+public class Login {
+	private WebDriver driver;
 
 	public Login(WebDriver driver) {
 

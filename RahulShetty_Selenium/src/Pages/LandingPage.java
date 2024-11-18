@@ -1,18 +1,17 @@
 package Pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-import BaseClass.BaseClass;
-
-public class LandingPage extends BaseClass {
+public class LandingPage {
 	WebDriver driver;
 
 	public LandingPage(WebDriver driver) {
 	
 		this.driver = driver;
+		PageFactory.initElements(driver, this);
 	}
 
 	@FindBy(css="div[class='css-1dbjc4n r-1loqt21 r-13awgt0 r-1mlwlqe r-1udh08x r-1otgn73 r-1lgpqti'] img[class='css-9pa8cd']")

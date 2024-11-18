@@ -52,7 +52,7 @@ public class Listener implements ITestListener {
 
 	@Override
 	public void onFinish(ITestContext context) {
-		// not implemented
+		extent.flush();
 	}
 
 }
